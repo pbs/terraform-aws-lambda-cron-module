@@ -1,13 +1,13 @@
-# PBS TF lambda cron module
+# PBS TF Lambda Cron Module
 
 ## Installation
 
 ### Using the Repo Source
 
+Use this URL for the source of the module. See the usage examples below for more details.
+
 ```hcl
-module "lambda-cron" {
-    source = "github.com/pbs/terraform-aws-lambda-cron-module?ref=x.y.z"
-}
+github.com/pbs/terraform-aws-lambda-cron-module?ref=x.y.z
 ```
 
 ### Alternative Installation Methods
