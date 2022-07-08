@@ -1,13 +1,13 @@
-# PBS TF lambda cron module
+# PBS TF Lambda Cron Module
 
 ## Installation
 
 ### Using the Repo Source
 
+Use this URL for the source of the module. See the usage examples below for more details.
+
 ```hcl
-module "lambda-cron" {
-    source = "github.com/pbs/terraform-aws-lambda-cron-module?ref=0.0.1"
-}
+github.com/pbs/terraform-aws-lambda-cron-module?ref=x.y.z
 ```
 
 ### Alternative Installation Methods
@@ -22,7 +22,7 @@ Integrate this module like so:
 
 ```hcl
 module "lambda-cron" {
-  source = "github.com/pbs/terraform-aws-lambda-cron-module?ref=0.0.1"
+  source = "github.com/pbs/terraform-aws-lambda-cron-module?ref=x.y.z"
 
   # Required Parameters
   handler  = "main"
@@ -44,7 +44,7 @@ module "lambda-cron" {
 
 If this repo is added as a subtree, then the version of the module should be close to the version shown here:
 
-`0.0.1`
+`x.y.z`
 
 Note, however that subtrees can be altered as desired within repositories.
 
@@ -67,7 +67,7 @@ Below is automatically generated documentation on this Terraform module using [t
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 4.5.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 4.21.0 |
 
 ## Modules
 
@@ -87,7 +87,7 @@ Below is automatically generated documentation on this Terraform module using [t
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_environment"></a> [environment](#input\_environment) | Environment (sharedtools, dev, staging, prod) | `string` | n/a | yes |
+| <a name="input_environment"></a> [environment](#input\_environment) | Environment (sharedtools, dev, staging, qa, prod) | `string` | n/a | yes |
 | <a name="input_filename"></a> [filename](#input\_filename) | Filename for the artifact to use for the Lambda | `string` | n/a | yes |
 | <a name="input_handler"></a> [handler](#input\_handler) | Cloudwatch event pattern | `string` | n/a | yes |
 | <a name="input_organization"></a> [organization](#input\_organization) | Organization using this module. Used to prefix tags so that they are easily identified as being from your organization | `string` | n/a | yes |
