@@ -52,6 +52,12 @@ variable "policy_json" {
   type        = string
 }
 
+variable "permissions_boundary_arn" {
+  description = "ARN of the permissions boundary to use on the role created for this lambda"
+  default     = null
+  type        = string
+}
+
 variable "layers" {
   description = "Lambda layers to apply to function. If null, a Lambda Layer extension is added by default."
   default     = null
@@ -60,7 +66,7 @@ variable "layers" {
 
 variable "lambda_insights_version" {
   description = "Lambda layer version for the LambdaInsightsExtension layer"
-  default     = 14
+  default     = null
   type        = number
 }
 
@@ -72,4 +78,46 @@ variable "tracing_config_mode" {
     condition     = contains(["Active", "PassThrough", "Disabled"], var.tracing_config_mode)
     error_message = "Valid configurations for X-Ray tracing config are 'Active' and 'PassThrough'. Setting this value to 'Disabled' disables X-Ray tracing."
   }
+}
+
+variable "use_prefix" {
+  description = "Use prefix for resources instead of explicitly defining whole name where possible"
+  default     = true
+  type        = bool
+}
+
+variable "architectures" {
+  description = "Architectures to target for the Lambda function"
+  default     = ["x86_64"]
+  type        = list(string)
+}
+
+variable "file_system_config" {
+  description = "File system configuration for the Lambda function"
+  default     = null
+  type        = map(any)
+}
+
+variable "vpc_id" {
+  description = "VPC ID. If null, one will be looked up based on environment tag."
+  default     = null
+  type        = string
+}
+
+variable "add_vpc_config" {
+  description = "Add VPC configuration to the Lambda function"
+  default     = false
+  type        = bool
+}
+
+variable "security_group_id" {
+  description = "Security group ID. If null, one will be created."
+  default     = null
+  type        = string
+}
+
+variable "subnets" {
+  description = "Subnets to use for the Lambda function. Ignored if add_vpc_config is false. If null, one will be looked up based on environment tag."
+  default     = null
+  type        = list(string)
 }
