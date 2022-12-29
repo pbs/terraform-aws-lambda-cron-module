@@ -1,5 +1,5 @@
 module "lambda" {
-  source = "github.com/pbs/terraform-aws-lambda-module?ref=0.0.4"
+  source = "github.com/pbs/terraform-aws-lambda-module?ref=1.3.0"
 
   # Required
   handler  = var.handler
@@ -17,7 +17,6 @@ module "lambda" {
   publish                  = var.publish
   policy_json              = var.policy_json
   layers                   = var.layers
-  lambda_insights_version  = var.lambda_insights_version
   tracing_config_mode      = var.tracing_config_mode
   architectures            = var.architectures
   permissions_boundary_arn = var.permissions_boundary_arn
