@@ -2,7 +2,7 @@ module "lambda_cron" {
   source = "../.."
 
   handler  = "main"
-  filename = "../artifacts/handler.zip"
+  filename = "../artifacts/arm-handler.zip"
   runtime  = "go1.x"
 
   architectures = ["arm64"]
